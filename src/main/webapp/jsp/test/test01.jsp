@@ -17,22 +17,25 @@
 		for(int i = 0; i < scores.length; i++) {
 			sum += scores[i];
 		}
-		
-		double avg = sum / scores.length;
+		double avg = sum / (double)scores.length;
 	%>
+		
 	<h2>점수 평균은 <%= avg %> 입니다.</h2>
+	
+	
 	
 	<!-- 2. 채점결과 -->
 	<%
 		List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
-		int sum2 = 0;
-		for(String score:scoreList) {
-			if(score.equals("O")) {
-				sum2 += 10;
+		int score = 0;
+		for(String answer:scoreList) {
+			if(answer.equals("O")) {
+				// score += 10;
+				score += 100 / scoreList.size();
 			}
 		}
 	%>
-	<h2>채점 결과는 <%= sum2 %>점 입니다.</h2>
+	<h2>채점 결과는 <%= score %>점 입니다.</h2>
 
 
 
@@ -50,14 +53,14 @@
 	<h2>1에서 50까지의 합은 <%= getSum(50) %></h2>
 	
 	
+	
 	<!-- 4. 나이 구하기 -->
 	<%
 		String birthDay = "20010820";
-		String yearString = birthDay.substring(0, 4);
-		int year = Integer.parseInt(yearString);
-		int age = 2023 - year + 1;
+		int year = Integer.parseInt(birthDay.substring(0, 4));
+		// int age = 2023 - year + 1;
 	%>
 	
-	<h2><%=birthDay %> 의 나이는 <%=age %>살 입니다.</h2>
+	<h2><%=birthDay %> 의 나이는 <%=2023 - year + 1 %>살 입니다.</h2>
 </body>
 </html>
