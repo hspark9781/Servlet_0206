@@ -14,10 +14,10 @@
 
 	<%
 		// BMI =  몸무게 / ((키 / 100.0) * (키 / 100.0));
-		int height = Integer.parseInt(request.getParameter("cm"));
-		int weight = Integer.parseInt(request.getParameter("kg"));
+		
+		int height = Integer.parseInt(request.getParameter("height"));
+		int weight = Integer.parseInt(request.getParameter("weight"));
 		double bmi = weight / ((height / 100.0) * (height / 100.0));
-		int bmiInt = weight / ((height / 100) * (height / 100));
 		String answer = null;
 		if(bmi <= 20) {
 			answer = "저체중";
