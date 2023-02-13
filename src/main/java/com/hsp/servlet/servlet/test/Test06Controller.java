@@ -30,7 +30,7 @@ public class Test06Controller extends HttpServlet {
 		int div = number1 / number2;
 		
 		
-		// josn = js규격을 문자열로 표현
+		// json = 자바스크립트규격을 문자열로 표현
 		// {"addition":10, "subtraction":5, "multiplication":25, "division":2}
 		// ""안에 "" => \"
 		out.println("{\"addition\":" + plus 
