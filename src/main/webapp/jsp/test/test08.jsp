@@ -67,14 +67,18 @@
 	<% for(Map<String, Object> book:list) { 
 		Integer id = (Integer)book.get("id");
 		if(id == number) {%>
-	<div class="d-flex container">
-		<img alt="책 표지" width="150" src=<%= book.get("image") %>>
-		<div>
-			<h1 class="font-weight-bold"><%= book.get("title") %></h1>
-			<h2 class="text-info font-weight-light"><%= book.get("author") %></h2>
-			<h3 class=" font-weight-light"><%= book.get("publisher") %></h3>
+	<div class="container">
+		<div class="d-flex ml-5">
+			<div class="ml-5"><img alt="책 표지" width="300" src=<%= book.get("image") %>></div>
+			<div>
+				<h1 class="font-weight-bold display-1"><%= book.get("title") %></h1>
+				<h2 class="text-info font-weight-light display-2"><%= book.get("author") %></h2>
+				<h3 class=" font-weight-light display-3"><%= book.get("publisher") %></h3>
+			</div>
 		</div>
+		
 	</div>
+		
 	<% 
 		}
 	}
