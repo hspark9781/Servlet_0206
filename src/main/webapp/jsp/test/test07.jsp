@@ -29,7 +29,6 @@
 	list.add(map);
 	map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
 	list.add(map);	
-	double score = (double)Integer.parseInt(request.getParameter("point"));
 	String menu = request.getParameter("menu");
 %>
 
@@ -47,12 +46,23 @@
 				</thead>
 				<tbody>
 				<% for(Map<String, Object> store:list) { %>
-					<%if((double)store.get("point") > score && store.get("menu").equals(menu)) { %>
-					<tr>
-						<td><%= store.get("menu") %></td>
-						<td><%= store.get("name") %></td>
-						<td><%= store.get("point") %></td>
-					</tr>
+					<%if(request.getParameter("point").equals("4")) { %>
+					<% double score = (double)Integer.parseInt(request.getParameter("point")); %>
+						<%if((double)store.get("point") > score && store.get("menu").equals(menu)) { %>
+							<tr>
+								<td><%= store.get("menu") %></td>
+								<td><%= store.get("name") %></td>
+								<td><%= store.get("point") %></td>
+							</tr>
+							<% } %>
+					<% } else { %>
+							<%if(store.get("menu").equals(menu)) { %>
+								<tr>
+									<td><%= store.get("menu") %></td>
+									<td><%= store.get("name") %></td>
+									<td><%= store.get("point") %></td>
+								</tr>
+							<% } %>
 					<% } %>
 				<% } %>
 				</tbody>
@@ -64,3 +74,5 @@
 
 </body>
 </html>
+					
+					
