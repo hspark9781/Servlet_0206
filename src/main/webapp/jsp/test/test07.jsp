@@ -29,9 +29,12 @@
 	list.add(map);
 	map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
 	list.add(map);	
+	
 	String menu = request.getParameter("menu");
+	
+	String option = request.getParameter("option");
+	// null은 어떤 형태로도 객체가 없는 형태 => 메소드를 사용할수 없는 형태=> 내가 비교연산자로 할대 nullexceoption 뜬 이유
 %>
-
 
 
 	<div class="container">
@@ -45,26 +48,26 @@
 					</tr>
 				</thead>
 				<tbody>
-				<% for(Map<String, Object> store:list) { %>
-					<%if(request.getParameter("point").equals("4")) { %>
-					<% double score = (double)Integer.parseInt(request.getParameter("point")); %>
-						<%if((double)store.get("point") > score && store.get("menu").equals(menu)) { %>
-							<tr>
-								<td><%= store.get("menu") %></td>
-								<td><%= store.get("name") %></td>
-								<td><%= store.get("point") %></td>
-							</tr>
-							<% } %>
-					<% } else { %>
-							<%if(store.get("menu").equals(menu)) { %>
-								<tr>
-									<td><%= store.get("menu") %></td>
-									<td><%= store.get("name") %></td>
-									<td><%= store.get("point") %></td>
-								</tr>
-							<% } %>
-					<% } %>
-				<% } %>
+					<% for(Map<String, Object> store:list) { 
+						if(menu.equals(store.get("menu"))) { 	
+								
+								Double point = (Double)store.get("point");
+								// pointLimit가 체크된 상태이면 4.0 이상만 보여준다.
+								// pointLimit가 안된상태(null) 일때 보여준다.
+								
+								if(option == null || (option.equals("pointLimit") && point > 4.0)) {
+									// || 앞에가 참이면 뒤 조건은 처리하지 않고 넘어간다.(중요!!)
+							%>
+					
+					<tr>
+						<td><%= store.get("menu") %></td>
+						<td><%= store.get("name") %></td>
+						<td><%= store.get("point") %></td>
+					</tr>
+					<%	}
+						} 
+					}
+					%>
 				</tbody>
 			</table>
 	</div>

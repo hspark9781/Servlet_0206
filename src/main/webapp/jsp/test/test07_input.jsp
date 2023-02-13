@@ -17,9 +17,9 @@
 		<form method="get" action="/jsp/test/test07.jsp">
 			<div class="d-flex align-items-end">
 				<input type="text" name="menu" class="col-3 form-control">
-				<label><input type="checkbox" name="point" value="4" class="ml-2"> 4점 이하 제외</label>
+				<label><input type="checkbox" name="option" value="pointLimit" class="ml-2"> 4점 이하 제외</label>
 			</div>
-			<button type="submit" class="btn bg-success text-light mt-2">검색</button>
+			<button type="submit" class="btn btn-success mt-2">검색</button>
 		</form>
 	</div>
 
