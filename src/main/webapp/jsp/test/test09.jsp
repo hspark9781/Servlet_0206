@@ -14,21 +14,26 @@
 </head>
 <body>
 
-	<%
-	Calendar today = Calendar.getInstance();
-	
-	SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 M월 d일");
-	
-	%>
+
 	
 	
 
 	
 	<h4>오늘부터 1일</h4>
+	<%
+		Calendar calendar = Calendar.getInstance();
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 M월 d일");
+		//오늘을 1일로 하기 위해서
+		calendar.add(Calendar.DATE, -1); 
+		
+		for(int i = 1; i <= 10; i++) {
+			calendar.add(Calendar.DATE, 100);
+			String dateString = formatter.format(calendar.getTime());
+	%>
+	
 
-	<% for(int i = 100; i <= 1000; i += 100) { %>
-			<% today.add(Calendar.DATE, (i - 1)); %>
-	<h3><%= i %>일 : <span class="text-danger font-weight-light"><%= formatter.format(today.getTime()) %></span></h3>
+	<h3><span class="font-weight-light"><%=100 * i %>일 : </span> <span class="text-danger font-weight-light"><%= dateString  %></span></h3>
 	<% } %>
 		
 		
