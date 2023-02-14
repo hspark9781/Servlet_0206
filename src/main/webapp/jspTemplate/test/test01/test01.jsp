@@ -71,7 +71,6 @@
 					</tr>
 				</thead>
 				<tbody>
-				</tbody>
 				<%for(Map<String, String> channel:list) { 
 						if(category == null || category.equals(channel.get("category"))) {%>
 					<tr>
@@ -81,8 +80,9 @@
 					</tr>
 				
 				<%	}
-					}
+				}
 				%>
+				</tbody>
 			</table>
 		</section>
 		<jsp:include page="footer.jsp"/>
@@ -92,6 +92,7 @@
 	
 
 </body>
+				
 				
 				
 </html>
