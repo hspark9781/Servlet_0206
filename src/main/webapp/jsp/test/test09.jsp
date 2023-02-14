@@ -19,11 +19,6 @@
 	
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 M월 d일");
 	
-	int i = 100;
-	
-	today.add(Calendar.DATE, i);
-	
-	String dateString = formatter.format(today.getTime());
 	%>
 	
 	
@@ -31,8 +26,10 @@
 	
 	<h4>오늘부터 1일</h4>
 
-		
-	<h3><%=dateString %></h3>
+	<% for(int i = 100; i <= 1000; i += 100) { %>
+			<% today.add(Calendar.DATE, (i - 1)); %>
+	<h3><%= i %>일 : <span class="text-danger font-weight-light"><%= formatter.format(today.getTime()) %></span></h3>
+	<% } %>
 		
 		
 		
