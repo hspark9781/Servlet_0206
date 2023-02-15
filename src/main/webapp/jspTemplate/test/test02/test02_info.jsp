@@ -108,7 +108,7 @@
 			<div class="contents1 border border-success d-flex align-items-center">
 					<% for(Map<String, Object> list:musicList) { 
 						Integer ids = (Integer)list.get("id");
-							 if(id == ids || btnTitle.equals(list.get("title"))) { %>
+							 if(id == ids || list.get("title").equals(btnTitle)) { %>
 					<div class="img ml-4">
 						<img width="150" alt="아이유 앨범 표지" src="<%= list.get("thumbnail")%>">
 					</div>
@@ -122,7 +122,7 @@
 							<div>
 							<% for(Map<String, Object> list:musicList) {
 								Integer ids = (Integer)list.get("id");
-							 if(id == ids || btnTitle.equals(list.get("title"))) { %>
+							 if(id == ids || list.get("title").equals(btnTitle)) { %>
 								<div class="font-weight-light">앨범</div>
 								<div class="font-weight-light">재생시간</div>
 								<div class="font-weight-light">작곡가</div>
@@ -133,7 +133,7 @@
 							<div class="ml-3">
 							<% for(Map<String, Object> list:musicList) { 
 								Integer ids = (Integer)list.get("id");
-							 if(id == ids || btnTitle.equals(list.get("title"))) { %>
+							 if(id == ids || list.get("title").equals(btnTitle)) { %>
 								<div class="font-weight-light"><%=list.get("album") %></div>
 								<div class="font-weight-light"><%=list.get("time")%></div>
 								<div class="font-weight-light"><%=list.get("composer") %></div>
