@@ -3,10 +3,12 @@
 <header class="d-flex align-items-center">
 			<div class="logo col-3 display-4 text-success font-weight-bold">Melong</div>
 			
-			<div class="search input-group col-4 mt-4">
-                        <input type="text" class="form-control">
+				<form method="get" action="/jspTemplate/test/test02/test02_info.jsp" class="search col-4 mt-4">
+					<div class=" input-group">
+                        <input type="text" class="form-control" name="title">
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-info">검색</button>
+                            <button type="submit" class="btn btn-info">검색</button>
                         </div>
-            </div>
+           			 </div>
+                </form>
 </header>

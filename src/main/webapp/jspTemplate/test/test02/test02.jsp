@@ -127,7 +127,7 @@
 						<% for(Map<String, Object> list:musicList) { %>
 							<tr>
 								<td class="col-2 text-center"><%= list.get("id") %></td>
-								<td class="col-4 text-center"><a href="/jspTemplate/test/test02/test02_info.jsp?title=<%= list.get("title") %>"><%= list.get("title") %></a></td>
+								<td class="col-4 text-center"><a href="/jspTemplate/test/test02/test02_info.jsp?id=<%= list.get("id") %>"><%= list.get("title") %></a></td>
 								<td class="col-6 text-center"><%= list.get("album") %></td>
 							</tr>
 						<% } %>

@@ -92,7 +92,8 @@
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
-  	String title = request.getParameter("title");
+  	int id = Integer.parseInt(request.getParameter("id"));
+  	String btnTitle = request.getParameter("title");
     %>
 
 
@@ -103,28 +104,40 @@
 		<jsp:include page="menu.jsp"/>
 		<section class="contents">
 			<div class="contents1 border border-success d-flex align-items-center">
+					<% for(Map<String, Object> list:musicList) { 
+						Integer ids = (Integer)list.get("id");
+							 if(id == ids || btnTitle.equals(list.get("title"))) { %>
 					<div class="img ml-4">
-						<img width="150" alt="아이유 앨범 표지" src="https://w.namu.la/s/db95e8529db90e3ad7c75b6d7ea8506b7a4a6f0d547810cc6ab1aa8c7f063f848a56c4f93636c7fa53e81f5fe00a3374df82f3d4b38372669e466cad41c3ea9f36b7e06acae147f61a6142966e950257c525731cc1e9ba42a6e0062a846ebd47c41c566016c2e882b375855fea73f63a">
+						<img width="150" alt="아이유 앨범 표지" src="<%= list.get("thumbnail")%>">
 					</div>
 					<div class="info ml-3">
-					<% for(Map<String, Object> list:musicList) { %>
-						
-						<h4 class="font-weight-light"><%=list.get("singer") %></h4>
+						<h3 class="font-weight-light"><%=list.get("title") %></h3>
 						<div class="font-weight-bold text-success"><%=list.get("singer")%></div>
 
-					<% }%>
+					<% }
+					}%>
 						<div class="d-flex">
 							<div>
+							<% for(Map<String, Object> list:musicList) {
+								Integer ids = (Integer)list.get("id");
+							 if(id == ids || btnTitle.equals(list.get("title"))) { %>
 								<div class="font-weight-light">앨범</div>
 								<div class="font-weight-light">재생시간</div>
 								<div class="font-weight-light">작곡가</div>
 								<div class="font-weight-light">작사가</div>
 							</div>
-							<div>
-								<div class="font-weight-light">삐삐</div>
-								<div class="font-weight-light">3 : 14</div>
-								<div class="font-weight-light">이종훈</div>
-								<div class="font-weight-light">아이유</div>
+							<% }
+							}%>
+							<div class="ml-3">
+							<% for(Map<String, Object> list:musicList) { 
+								Integer ids = (Integer)list.get("id");
+							 if(id == ids || btnTitle.equals(list.get("title"))) { %>
+								<div class="font-weight-light"><%=list.get("album") %></div>
+								<div class="font-weight-light"><%=list.get("time")%></div>
+								<div class="font-weight-light"><%=list.get("composer") %></div>
+								<div class="font-weight-light"><%=list.get("lyricist") %></div>
+							<% }
+							}%>
 							</div>
 						</div>
 					</div>
@@ -141,6 +154,8 @@
 	
 
 </body>
+						
+					
 </html>
 						
 						
