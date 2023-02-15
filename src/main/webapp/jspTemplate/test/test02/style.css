@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#wrap {
+	width:1200px;
+	margin: auto;
+}
+
+header {
+	height:100px;
+}
+
+.main-menu {
+	height:50px;
+}
+
+.contents > .contents1 {
+	height:200px;
+}
+
+.contents > .contents2 {
+	height:400px;
+}
+
+.contents1 > .img {
+	width:150px;
+	height:150px;
+}
+
+.contents1 > .info {
+	height:150px;
+}
+
+
+
+footer {
+	height:70px;
+}
