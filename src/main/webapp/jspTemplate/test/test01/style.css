@@ -10,13 +10,10 @@ header {
 }
 
 .main-menu {
-	height:50px;
-}
-
-.contents {
-	height:500px;
+	height:40px;
 }
 
 footer {
 	height:70px;
 }
+
