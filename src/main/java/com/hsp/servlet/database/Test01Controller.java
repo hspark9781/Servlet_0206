@@ -29,9 +29,10 @@ public class Test01Controller extends HttpServlet {
 				+ "VALUE \r\n"
 				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', '1500000', NULL, now(), now());";
 		
-		
+		mysqlService.update(insertQuery);
 		ResultSet resultSet = mysqlService.select("SELECT * FROM `real_estate`\n"
 				+ "ORDER BY `id` DESC LIMIT 10;");
+		
 		
 		try {
 			while(resultSet.next()) {
