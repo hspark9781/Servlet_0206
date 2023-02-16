@@ -97,7 +97,7 @@
   	int id = 0;
   	String idString = request.getParameter("id");
   	if(idString != null) {
-  		id = Integer.parseInt(idString);
+  		id = Integer.parseInt(idString); // parseInt가 parameter에서 null안되면 수행이 안되기 때문에 if문을 통해 null처리를 해줘야 한다.
   	}
   	String btnTitle = request.getParameter("title");
     %>
@@ -111,12 +111,12 @@
 		<section class="contents">
 			<div class="contents1 border border-success d-flex align-items-center">
 					<% for(Map<String, Object> list:musicList) { 
-						Integer ids = (Integer)list.get("id");
-							 if(id == ids || list.get("title").equals(btnTitle) && idString == null) { 
-								Integer timeInt = (Integer)list.get("time");
+						int ids = (Integer)list.get("id");
+							 if(id == ids || list.get("title").equals(btnTitle)) { 
+								int timeInt = (Integer)list.get("time");
 								String time = (timeInt / 60) + " : " + (timeInt % 60);
 							%>
-					<div class="img ml-4">
+					<div class="ml-4">
 						<img width="150" alt="아이유 앨범 표지" src="<%= list.get("thumbnail")%>">
 					</div>
 					<div class="info ml-3">
@@ -124,27 +124,27 @@
 						<div class="font-weight-bold text-success"><%=list.get("singer")%></div>
 
 						<div class="d-flex">
-							<div>
+							<div class="small">
 								<div class="font-weight-light">앨범</div>
 								<div class="font-weight-light">재생시간</div>
 								<div class="font-weight-light">작곡가</div>
 								<div class="font-weight-light">작사가</div>
 							</div>
 						
-							<div class="ml-3">
+							<div class="ml-3 small">
 								<div class="font-weight-light"><%= list.get("album") %></div>
 								<div class="font-weight-light"><%= time %></div>
 								<div class="font-weight-light"><%= list.get("composer") %></div>
 								<div class="font-weight-light"><%= list.get("lyricist") %></div>
-							<%}
-							}%>
-							
 							</div>
 						</div>
 					</div>
+					<%}
+					}%>
 			</div>			
 			<div class="contents2 mt-5">
-				<h4 class="font-weight-bold">가사</h4> <hr>
+				<h4 class="font-weight-bold">가사</h4> 
+				<hr>
 				<div>가사 정보 없음</div>
 			</div>
 		</section>
@@ -158,6 +158,8 @@
 						
 					
 </html>
+							
+							
 						
 						
 					
