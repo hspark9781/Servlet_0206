@@ -94,7 +94,11 @@
     musicList.add(musicInfo);
     
     
-  	int id = Integer.parseInt(request.getParameter("id"));
+  	int id = 0;
+  	String idString = request.getParameter("id");
+  	if(idString != null) {
+  		id = Integer.parseInt(idString);
+  	}
   	String btnTitle = request.getParameter("title");
     %>
 
@@ -108,7 +112,7 @@
 			<div class="contents1 border border-success d-flex align-items-center">
 					<% for(Map<String, Object> list:musicList) { 
 						Integer ids = (Integer)list.get("id");
-							 if(id == ids || list.get("title").equals(btnTitle)) { %>
+							 if(id == ids || list.get("title").equals(btnTitle) && idString == null) { %>
 					<div class="img ml-4">
 						<img width="150" alt="아이유 앨범 표지" src="<%= list.get("thumbnail")%>">
 					</div>
