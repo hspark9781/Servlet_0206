@@ -116,29 +116,20 @@
 						<h3 class="font-weight-light"><%=list.get("title") %></h3>
 						<div class="font-weight-bold text-success"><%=list.get("singer")%></div>
 
-					<% }
-					}%>
 						<div class="d-flex">
 							<div>
-							<% for(Map<String, Object> list:musicList) {
-								Integer ids = (Integer)list.get("id");
-							 if(id == ids || list.get("title").equals(btnTitle)) { %>
 								<div class="font-weight-light">앨범</div>
 								<div class="font-weight-light">재생시간</div>
 								<div class="font-weight-light">작곡가</div>
 								<div class="font-weight-light">작사가</div>
 							</div>
-							<% }
-							}%>
+						
 							<div class="ml-3">
-							<% for(Map<String, Object> list:musicList) { 
-								Integer ids = (Integer)list.get("id");
-							 if(id == ids || list.get("title").equals(btnTitle)) { %>
 								<div class="font-weight-light"><%=list.get("album") %></div>
 								<div class="font-weight-light"><%=list.get("time")%></div>
 								<div class="font-weight-light"><%=list.get("composer") %></div>
 								<div class="font-weight-light"><%=list.get("lyricist") %></div>
-							<% }
+							<%}
 							}%>
 							</div>
 						</div>
