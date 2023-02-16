@@ -104,10 +104,10 @@
 		
 		<section class="contents">
 			<div class="contents1 border border-success d-flex align-items-center">
-				<div class="img ml-4">
+				<div class="ml-4">
 					<img width="150" alt="아이유 앨범 표지" src="<%=artistInfo.get("photo") %>">
 				</div>
-				<div class="info ml-3">
+				<div class="ml-3">
 					<h4 class="font-weight-bold"><%=artistInfo.get("name") %></h4>
 					<div><%=artistInfo.get("agency") %></div>
 					<div><%=artistInfo.get("debute") %> 데뷔</div>

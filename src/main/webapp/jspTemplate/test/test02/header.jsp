@@ -7,7 +7,7 @@
 					<div class=" input-group">
                         <input type="text" class="form-control" name="title">
                         <div class="input-group-append">
-                            <button type="submit" class="btn btn-info">검색</button>
+                            <button type="submit" class="btn btn-success">검색</button>
                         </div>
            			 </div>
                 </form>
