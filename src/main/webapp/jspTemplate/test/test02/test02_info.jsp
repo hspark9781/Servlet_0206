@@ -113,9 +113,8 @@
 					<% for(Map<String, Object> list:musicList) { 
 						Integer ids = (Integer)list.get("id");
 							 if(id == ids || list.get("title").equals(btnTitle) && idString == null) { 
-							 Integer timeInt = (Integer)list.get("time");
-							 StringBuffer time = new StringBuffer(timeInt + "");
-							 time = time.insert(1, ":");
+								Integer timeInt = (Integer)list.get("time");
+								String time = (timeInt / 60) + " : " + (timeInt % 60);
 							%>
 					<div class="img ml-4">
 						<img width="150" alt="아이유 앨범 표지" src="<%= list.get("thumbnail")%>">
