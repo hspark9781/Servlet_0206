@@ -3,6 +3,7 @@ package com.hsp.servlet.database;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,15 +17,12 @@ public class Test01Controller extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.setContentType("text/html");
+		response.setContentType("text/plain");
 		
 		PrintWriter out = response.getWriter();
 		
 		MysqlService mysqlService = MysqlService.getInstance();
-		out.println("<html><header><title></title></header><body>");
 		mysqlService.connect();
-		
-		ResultSet resultSet = mysqlService.select("SELECT * FROM `real_estate`;");
 		
 		String insertQuery = "INSERT INTO `real_estate`\r\n"
 				+ "(`realtorId`, `address`, `area`, `type`, `price`, `rentprice`, `createdAt`, `updatedAt`)\r\n"
@@ -32,8 +30,22 @@ public class Test01Controller extends HttpServlet {
 				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', '1500000', NULL, now(), now());";
 		
 		
+		ResultSet resultSet = mysqlService.select("SELECT * FROM `real_estate`\n"
+				+ "ORDER BY `id` DESC LIMIT 10;");
+		
+		try {
+			while(resultSet.next()) {
+				String address = resultSet.getString("address");
+				int area = resultSet.getInt("area");
+				String type = resultSet.getString("type");
+				out.println("매물주소 : " + address + ", 면적 : " + area + ", 타입 : " + type );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		
 		mysqlService.disconnect();
-		out.println("</body></html>");
 		
 		
 	}

@@ -11,9 +11,9 @@ public class MysqlService {
 	private static MysqlService mysqlService = null;
 	
 	// 접속 주소, 아이디, 비밀번호
-	private String url = "jdbc:mysql://localhost:3306/hsp_0119";
+	private String url = "jdbc:mysql://localhost:3306/hsp";
 	private String userId = "root";
-	private String password = "root";
+	private String password = "hyunsuk2@";
 	private Connection connection;
 	private Statement statement;
 	
@@ -75,6 +75,8 @@ public class MysqlService {
 			return -1;
 		}
 	}
+	
+	
 	
 	// 접속 끊기
 	public void disconnect() {
