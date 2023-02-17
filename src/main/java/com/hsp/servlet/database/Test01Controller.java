@@ -24,12 +24,15 @@ public class Test01Controller extends HttpServlet {
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		String insertQuery = "INSERT INTO `real_estate`\r\n"
-				+ "(`realtorId`, `address`, `area`, `type`, `price`, `rentprice`, `createdAt`, `updatedAt`)\r\n"
-				+ "VALUE \r\n"
-				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', '1500000', NULL, now(), now());";
+//		String insertQuery = "INSERT INTO `real_estate`\r\n"
+//				+ "(`realtorId`, `address`, `area`, `type`, `price`, `rentPrice`, `createdAt`, `updatedAt`)\r\n"
+//				+ "VALUE \r\n"
+//				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', '1500000', NULL, now(), now());";
+//		
+//		int count = mysqlService.update(insertQuery);
+//		
+//		out.println("실행된 행의 개수" + count);
 		
-		mysqlService.update(insertQuery);
 		ResultSet resultSet = mysqlService.select("SELECT * FROM `real_estate`\n"
 				+ "ORDER BY `id` DESC LIMIT 10;");
 		
