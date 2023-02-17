@@ -17,9 +17,9 @@
 		<div class="container">
 				<h2>즐겨찾기 추가</h2>
 			<form method="get" action="/database/test02/insert">
-				<label class="mt-2">사이트명:</label>
+				<label class="mt-2 small">사이트명:</label>
 				<input type="text" class="col-5 form-control" name="name">
-				<label class="mt-3">사이트 주소:</label>
+				<label class="mt-3 small">사이트 주소:</label>
 				<input type="text" class="col-5 form-control" name="url">
 				<button type="submit" class="btn btn-success mt-2">입력</button>
 			</form>

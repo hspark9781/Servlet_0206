@@ -17,7 +17,7 @@
 	<%
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
-		String query= "SELECT * FROM `url`;";
+		String query= "SELECT * FROM `url` ORDER BY `id` DESC";
 		ResultSet resultSet = mysqlService.select(query);
 		
 	%>
@@ -33,7 +33,7 @@
 				<% while(resultSet.next()) { %>
 					<tr class="text-center">
 						<td><%= resultSet.getString("name") %></td>
-						<td><a href="<%= resultSet.getString("url")%>"><%= resultSet.getString("url")%></a></td>
+						<td><a target="_blank" href="<%= resultSet.getString("url")%>"><%= resultSet.getString("url")%></a></td>
 						<td><a href="/database/test02/delete?id=<%= resultSet.getInt("id")%>">삭제</a></td>
 					</tr>
 				<% } %>
