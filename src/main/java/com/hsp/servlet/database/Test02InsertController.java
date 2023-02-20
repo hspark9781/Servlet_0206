@@ -11,7 +11,7 @@ import com.hsp.servlet.common.MysqlService;
 @WebServlet("/database/test02/insert")
 public class Test02InsertController extends HttpServlet {
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
